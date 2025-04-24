@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eprova Driver Download Portal</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@keyframes glow {
+0% { box-shadow: 0 0 5px #20C20E; }
+50% { box-shadow: 0 0 20px #20C20E; }
+100% { box-shadow: 0 0 5px #20C20E; }
+}
+.glow-effect { animation: glow 2s infinite; }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.keycap-bg {
+background-image: url('https://public.readdy.ai/ai/img_res/c9d681e11c647ec596551b6c0f0b628d.jpg');
+background-size: cover;
+opacity: 0.05;
+}
+</style>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#000000',secondary:'#0A0A0A'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+</head>
+<body class="min-h-screen bg-white">   
+<div class="keycap-bg fixed inset-0 z-0"></div>
+<div class="relative z-10 container mx-auto px-4 py-8 min-h-screen flex flex-col items-center">
+<header class="text-center mb-12">
+<div class="inline-block glow-effect p-4 rounded-lg mb-6">
+<h1 class="font-['Pacifico'] text-4xl text-primary">Eprova Tech</h1>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 max-w-xl mx-auto mb-8">
+<div class="flex items-center justify-center gap-2 text-gray-600">
+<i class="ri-computer-line ri-lg"></i>
+<span>Detected System: <span id="detectedOS" class="font-semibold">Windows 11</span></span>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto">
+<div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+<div class="flex justify-center gap-2 mb-8">
+</div>
+<div class="version-info mb-8">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h2 class="text-xl font-semibold mb-1">Version 2.5.3 (Latest Stable)</h2>
+<p class="text-gray-600">Released: March 25, 2025</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">Signed</span>
+<span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Verified</span>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-6">
+<div class="flex items-center gap-2">
+<code class="flex-1 bg-white rounded p-2 text-sm">sudo apt-get install eprova-driver</code>
+<button class="p-2 hover:bg-gray-200 rounded" onclick="copyCommand()">
+<i class="ri-file-copy-line"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 justify-center">
+<div class="download-card bg-white rounded-lg border p-6 hover:shadow-lg transition-shadow w-full">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 flex items-center justify-center">
+<i class="ri-windows-fill ri-2x text-primary"></i>
+</div>
+<div>
+<h3 class="font-semibold">Windows</h3>
+<p class="text-sm text-gray-600">64-bit (x86_64)</p>
+</div>
+</div>
+<div class="text-sm text-gray-600 mb-4">
+<p>Size: 24.5 MB</p>
+<p class="truncate">SHA256: 8f4e2a1...</p>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>下载页面</title>
+  <style>
+    .download-button {
+      padding: 12px 24px;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="https://drive.google.com/file/d/1zQqpB9jZxSuQOL23zDl-KSqDyg9vWkwR/view?usp=drivesdk" class="download-button">
+    download Windows drive (v1.0)
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+<h2 class="text-xl font-semibold mb-6">Quick Transfer</h2>
+<div class="flex items-center justify-center gap-8">
+<div class="text-center">
+<div class="w-32 h-32 bg-gray-100 rounded-lg mb-2 flex items-center justify-center">
+<i class="ri-qr-code-line ri-3x text-gray-400"></i>
+</div>
+<p class="text-sm text-gray-600">Scan to download on mobile</p>
+</div>
+<div class="text-center">
+<div class="w-32 h-32 bg-gray-100 rounded-lg mb-2 flex items-center justify-center">
+<i class="ri-folder-line ri-3x text-gray-400"></i>
+</div>
+<p class="text-sm text-gray-600">Download folder structure</p>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-8">
+<h2 class="text-xl font-semibold mb-4">After Sales Contact</h2>
+<div class="flex flex-row items-center gap-6">
+<div class="bg-gray-50 rounded-lg p-6 flex-1 w-full">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
+<i class="ri-mail-line ri-lg text-primary"></i>
+</div>
+<h3 class="font-medium">Email Support</h3>
+</div>
+<p class="text-gray-600 mb-4">Our technical support team is available 24/7 to assist with driver installation and troubleshooting.</p>
+<div class="flex items-center gap-2 mb-2">
+<i class="ri-mail-send-line text-gray-500"></i>
+<a href="mailto:support@eprovatech.com" class="text-primary hover:underline">support@eprovatech.com</a>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-time-line text-gray-500"></i>
+<span class="text-gray-600">Response time: Within 24 hours</span>
+</div>
+</div>
+<div class="bg-gray-50 rounded-lg p-6 flex-1 w-full">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
+<i class="ri-customer-service-2-line ri-lg text-primary"></i>
+</div>
+<h3 class="font-medium">Technical Assistance</h3>
+</div>
+<p class="text-gray-600 mb-4">For enterprise customers and complex installations, please contact our specialized technical team.</p>
+<div class="flex items-center gap-2 mb-2">
+<i class="ri-mail-send-line text-gray-500"></i>
+<a href="mailto:enterprise@eprovatech.com" class="text-primary hover:underline">enterprise@eprovatech.com</a>
+</div>
+<div class="flex items-center gap-2">
+<i class="ri-time-line text-gray-500"></i>
+<span class="text-gray-600">Priority response for enterprise clients</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div id="downloadProgress" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg transform translate-y-full transition-transform duration-300">
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center gap-4">
+<div class="flex-1">
+<div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-300" style="width: 0%"></div>
+</div>
+</div>
+<span class="text-sm font-medium">0%</span>
+</div>
+</div>
+</div>
+<script>
+const mockVersions = {
+stable: {
+version: "2.5.3",
+date: "March 25, 2025",
+downloads: {
+windows: { size: "24.5 MB", sha: "8f4e2a1..." },
+macos: { size: "28.2 MB", sha: "7d3f1b2..." },
+linux: { size: "21.8 MB", sha: "9c5d2f3..." }
+}
+}
+};
+function switchTab(el, tab) {
+document.querySelectorAll('.rounded-full').forEach(btn => {
+btn.classList.remove('bg-primary', 'text-white');
+btn.classList.add('text-gray-600');
+});
+el.classList.add('bg-primary', 'text-white');
+el.classList.remove('text-gray-600');
+}
+function copyCommand() {
+navigator.clipboard.writeText('sudo apt-get install eprova-driver');
+const btn = event.currentTarget;
+const originalHTML = btn.innerHTML;
+btn.innerHTML = '<i class="ri-check-line"></i>';
+setTimeout(() => btn.innerHTML = originalHTML, 2000);
+}
+document.querySelectorAll('.download-card button').forEach(btn => {
+btn.addEventListener('click', function() {
+const progress = document.getElementById('downloadProgress');
+const progressBar = progress.querySelector('.bg-primary');
+progress.style.transform = 'translateY(0)';
+let percent = 0;
+const interval = setInterval(() => {
+percent += 5;
+progressBar.style.width = `${percent}%`;
+progress.querySelector('span').textContent = `${percent}%`;
+if (percent >= 100) {
+clearInterval(interval);
+setTimeout(() => {
+progress.style.transform = 'translateY(100%)';
+setTimeout(() => {
+progressBar.style.width = '0%';
+progress.querySelector('span').textContent = '0%';
+}, 300);
+}, 500);
+}
+}, 100);
+});
+});
+function detectOS() {
+const userAgent = window.navigator.userAgent;
+const platform = window.navigator.platform;
+const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+if (macosPlatforms.indexOf(platform) !== -1) {
+return 'macOS';
+} else if (windowsPlatforms.indexOf(platform) !== -1) {
+return 'Windows';
+} else if (iosPlatforms.indexOf(platform) !== -1) {
+return 'iOS';
+} else if (/Android/.test(userAgent)) {
+return 'Android';
+} else if (/Linux/.test(platform)) {
+return 'Linux';
+}
+return 'Unknown OS';
+}
+document.getElementById('detectedOS').textContent = detectOS();
+</script>
+</body>
+</html>

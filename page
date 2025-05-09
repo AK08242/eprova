@@ -1,113 +1,252 @@
-<a href="mailto:support@eprovatech.com" class="text-primary hover:underline">support@eprovatech.com</a>
-</div>
-<div class="flex items-center gap-2">
-<i class="ri-time-line text-gray-500"></i>
-<span class="text-gray-600">Response time: Within 24 hours</span>
-</div>
-</div>
-<div class="bg-gray-50 rounded-lg p-6 flex-1 w-full">
-<div class="flex items-center gap-3 mb-4">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-10 rounded-full">
-<i class="ri-customer-service-2-line ri-lg text-primary"></i>
-</div>
-<h3 class="font-medium">Technical Assistance</h3>
-</div>
-<p class="text-gray-600 mb-4">For enterprise customers and complex installations, please contact our specialized technical team.</p>
-<div class="flex items-center gap-2 mb-2">
-<i class="ri-mail-send-line text-gray-500"></i>
-<a href="mailto:enterprise@eprovatech.com" class="text-primary hover:underline">enterprise@eprovatech.com</a>
-</div>
-<div class="flex items-center gap-2">
-<i class="ri-time-line text-gray-500"></i>
-<span class="text-gray-600">Priority response for enterprise clients</span>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-<div id="downloadProgress" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg transform translate-y-full transition-transform duration-300">
-<div class="container mx-auto px-4 py-4">
-<div class="flex items-center gap-4">
-<div class="flex-1">
-<div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-<div class="h-full bg-primary transition-all duration-300" style="width: 0%"></div>
-</div>
-</div>
-<span class="text-sm font-medium">0%</span>
-</div>
-</div>
-</div>
-<script>
-const mockVersions = {
-stable: {
-version: "2.5.3",
-date: "March 25, 2025",
-downloads: {
-windows: { size: "24.5 MB", sha: "8f4e2a1..." },
-macos: { size: "28.2 MB", sha: "7d3f1b2..." },
-linux: { size: "21.8 MB", sha: "9c5d2f3..." }
-}
-}
-};
-function switchTab(el, tab) {
-document.querySelectorAll('.rounded-full').forEach(btn => {
-btn.classList.remove('bg-primary', 'text-white');
-btn.classList.add('text-gray-600');
-});
-el.classList.add('bg-primary', 'text-white');
-el.classList.remove('text-gray-600');
-}
-function copyCommand() {
-navigator.clipboard.writeText('sudo apt-get install eprova-driver');
-const btn = event.currentTarget;
-const originalHTML = btn.innerHTML;
-btn.innerHTML = '<i class="ri-check-line"></i>';
-setTimeout(() => btn.innerHTML = originalHTML, 2000);
-}
-document.querySelectorAll('.download-card button').forEach(btn => {
-btn.addEventListener('click', function() {
-const progress = document.getElementById('downloadProgress');
-const progressBar = progress.querySelector('.bg-primary');
-progress.style.transform = 'translateY(0)';
-let percent = 0;
-const interval = setInterval(() => {
-percent += 5;
-progressBar.style.width = `${percent}%`;
-progress.querySelector('span').textContent = `${percent}%`;
-if (percent >= 100) {
-clearInterval(interval);
-setTimeout(() => {
-progress.style.transform = 'translateY(100%)';
-setTimeout(() => {
-progressBar.style.width = '0%';
-progress.querySelector('span').textContent = '0%';
-}, 300);
-}, 500);
-}
-}, 100);
-});
-});
-function detectOS() {
-const userAgent = window.navigator.userAgent;
-const platform = window.navigator.platform;
-const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
-const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
-const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
-if (macosPlatforms.indexOf(platform) !== -1) {
-return 'macOS';
-} else if (windowsPlatforms.indexOf(platform) !== -1) {
-return 'Windows';
-} else if (iosPlatforms.indexOf(platform) !== -1) {
-return 'iOS';
-} else if (/Android/.test(userAgent)) {
-return 'Android';
-} else if (/Linux/.test(platform)) {
-return 'Linux';
-}
-return 'Unknown OS';
-}
-document.getElementById('detectedOS').textContent = detectOS();
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download Center</title>
+    <style>
+        /* Main styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+        }
+        
+        .download-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .download-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .download-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .download-button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+        
+        .download-button:hover {
+            background-color: #2563eb;
+        }
+        
+        .download-button.recommended {
+            border: 2px solid #2563eb;
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #2563eb;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        /* Progress bar styling */
+        #downloadProgress {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #3b82f6;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            font-size: 0.875rem;
+            color: #64748b;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <div class="download-card">
+            <div class="download-header">
+                <h2>Download Latest Version</h2>
+                <p>Your current system: <span id="detectedOS">Detecting...</span></p>
+            </div>
+            
+            <div class="download-buttons">
+                <button class="download-button" data-os="windows" data-fileid="1zQqpB9jZxSuQOL23zDl-KSqDyg9vWkwR">
+                    Download for Windows
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download progress bar -->
+    <div id="downloadProgress">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">0%</div>
+        </div>
+    </div>
+
+    <script>
+        // Google Drive direct download URL generator
+        function getDriveDownloadUrl(fileId) {
+            return `https://drive.google.com/uc?export=download&id=${fileId}&confirm=t`;
+        }
+
+        // Detect user's operating system
+        function detectOS() {
+            const userAgent = window.navigator.userAgent;
+            const platform = window.navigator.platform;
+            const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+            const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+            const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+
+            if (macosPlatforms.indexOf(platform) !== -1) {
+                return 'macOS';
+            } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                return 'Windows';
+            } else if (iosPlatforms.indexOf(platform) !== -1) {
+                return 'iOS';
+            } else if (/Android/.test(userAgent)) {
+                return 'Android';
+            } else if (/Linux/.test(platform)) {
+                return 'Linux';
+            }
+            return 'Unknown OS';
+        }
+
+        // Show download progress animation
+        function showDownloadProgress(callback) {
+            const progress = document.getElementById('downloadProgress');
+            const progressFill = progress.querySelector('.progress-fill');
+            const progressText = progress.querySelector('.progress-text');
+            
+            // Show progress bar
+            progress.style.transform = 'translateY(0)';
+            
+            let percent = 0;
+            const interval = setInterval(() => {
+                percent += 5;
+                progressFill.style.width = `${percent}%`;
+                progressText.textContent = `${percent}%`;
+
+                if (percent >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        // Hide progress bar
+                        progress.style.transform = 'translateY(100%)';
+                        // Reset progress
+                        setTimeout(() => {
+                            progressFill.style.width = '0%';
+                            progressText.textContent = '0%';
+                        }, 300);
+                        
+                        // Execute callback
+                        if (callback) callback();
+                    }, 500);
+                }
+            }, 100);
+        }
+
+        // Initialize download buttons
+        function initDownloadButtons() {
+            document.querySelectorAll('.download-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const fileId = this.dataset.fileid;
+                    const downloadUrl = getDriveDownloadUrl(fileId);
+                    
+                    // Show progress animation
+                    showDownloadProgress(() => {
+                        // Start actual download after animation completes
+                        window.location.href = downloadUrl;
+                    });
+                });
+            });
+        }
+
+        // Highlight recommended download based on OS
+        function highlightRecommendedDownload() {
+            const os = detectOS().toLowerCase();
+            const osButtonMap = {
+                'windows': 'windows',
+                'macos': 'macos',
+                'linux': 'linux',
+                'ios': 'macos', // iOS users get macOS version
+                'android': 'linux' // Android users get Linux version
+            };
+            
+            const recommendedOS = osButtonMap[os] || 'windows';
+            const recommendedButton = document.querySelector(`.download-button[data-os="${recommendedOS}"]`);
+            
+            if (recommendedButton) {
+                recommendedButton.classList.add('recommended');
+                const badge = document.createElement('span');
+                badge.className = 'recommended-badge';
+                badge.textContent = 'Recommended';
+                recommendedButton.appendChild(badge);
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Display detected OS
+            const osElement = document.getElementById('detectedOS');
+            if (osElement) {
+                osElement.textContent = detectOS();
+            }
+            
+            // Initialize download functionality
+            initDownloadButtons();
+            highlightRecommendedDownload();
+        });
+    </script>
 </body>
 </html>
